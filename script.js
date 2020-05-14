@@ -1,6 +1,16 @@
+let lastGrid = 16;
 const container = document.querySelector('#container');
-container.style.cssText = 'grid-template-columns: repeat(16, auto);';
-container.style.cssText = 'grid-template-rows: repeat(16, auto);';
+
+const size = document.querySelector('#size');
+size.addEventListener('click', (e) => {
+    createGrid(prompt("Enter Grid Size!", '16'))
+  });
+
+
+const reset = document.querySelector('#reset');
+reset.addEventListener('click', (e) => {
+        createGrid(lastGrid)
+    });
 
 
 
@@ -14,13 +24,19 @@ square.addEventListener('mouseenter', function(event){
 })
 }
 
-function createGrid(x) {
-    for (i = 0; i < x; i++) {
-        createSquare();
-        for (n = 0; n < x; n++) {
-            createSquare();
-        }
+function createGrid(n) {
+    container.style.cssText = `
+    grid-template-columns: repeat(${n}, ${100/n}%);
+    grid-auto-rows: ${100/n}%;`;
+    while (container.hasChildNodes()){
+        container.removeChild(container.lastChild);
     }
+    for (i = 0; i < (n*n); i++) {
+        createSquare();
+    }
+
+    lastGrid = n;
+
 }
 
 function pen(){
@@ -31,6 +47,8 @@ function pen(){
 }
 
 createGrid(16);
+
+
 
 // const squares = document.querySelectorAll('.square');
 // squares.forEach(square => square.addEventListener('mouseover', pen()));

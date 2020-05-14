@@ -1,7 +1,11 @@
 #container {
     display: grid;
     background-color: blue;
-    height: 100vh;
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    border: solid;
+    border-color: black;
 }
 
 .square {
@@ -11,4 +15,16 @@
 
 .pen {
     background-color: pink;
+}
+
+#menu {
+    width: 200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    text-align: center;
+
+}
+
+button{
+    
 }

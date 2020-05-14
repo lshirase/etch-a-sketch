@@ -1,0 +1,14 @@
+#container {
+    display: grid;
+    background-color: blue;
+    height: 100vh;
+}
+
+.square {
+    background-color: white;
+    
+}
+
+.pen {
+    background-color: pink;
+}
